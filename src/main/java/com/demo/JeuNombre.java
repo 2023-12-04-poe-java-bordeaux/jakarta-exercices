@@ -31,6 +31,12 @@ public class JeuNombre extends HttpServlet {
         try { // permet de gérer le cas où nombre n'est pas un nombre ou il est null
             int proposition = Integer.parseInt(nombreString);
 
+            // Triche
+            response.getWriter().write("<h1>Nombre à deviner: </h1>"+nombreADeviner);
+            response.getWriter().write("<h1>Tetaives restantes: </h1>"+tentativesRestantes);
+
+
+
             // Algo du jeu:
             if(nombreADeviner == proposition){
                 response.getWriter().write("<h1>Bravo, vous avez gagné !</h1>");
