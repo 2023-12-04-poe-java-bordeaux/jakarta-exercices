@@ -22,10 +22,10 @@ public class CouleurPrefereeServlet extends HttpServlet  {
         HttpSession session = request.getSession();
 
         if(couleur != null) {
-            session.setAttribute("couleur", couleur);
+            request.getSession().setAttribute("couleur", couleur);
         }
 
-        if(session.getAttribute("couleur") == null){
+        if(request.getSession().getAttribute("couleur") == null){
             response.getWriter()
                     .write("<h1>Vous n'avez pas encore enregistré de couleur:</h1>");
         } else {
