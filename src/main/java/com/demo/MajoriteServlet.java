@@ -28,17 +28,20 @@ public class MajoriteServlet extends HttpServlet {
 
         // parser le nombre dans le String
         int age = 0;
+        boolean erreurAge = false;
         try {
              age = Integer.parseInt(ageString);
         }
         catch (NumberFormatException e){
             // à compléter
+            erreurAge = true;
         }
 
         // envoyer les données à la Vue JSP
         request.setAttribute("prenom", prenom);
         request.setAttribute("nom", nom);
         request.setAttribute("age", age);
+        request.setAttribute("erreurAge", erreurAge);
 
         // choix de la Vue JSP à afficher
         request.getRequestDispatcher("WEB-INF/majoriteResultat.jsp")

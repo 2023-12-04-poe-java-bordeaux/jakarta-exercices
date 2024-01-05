@@ -9,17 +9,24 @@
   <body>
     <h1>Etes vous majeur</h1>
 
+    <c:if test="${ erreurAge }">
+        <p style="color:red">L'age doit être un nombre</p>
+      </c:if>
+      <c:if test="${ ! erreurAge }">
+       <c:if test="${ age > 17 }">
+                <p>Vous êtes majeur</p>
+       </c:if>
+      <c:if test="${ age < 18 }">
+        <p>Vous êtes mineur</p>
+      </c:if>
+    </c:if>
+
+
     <p>Votre prénom: ${ prenom } </p>
     <p>Votre nom: ${ nom } </p>
     <p>Votre age: ${ age } </p>
 
-  <c:if test="${ age > 17 }">
-  <p>Vous êtes majeur</p>
-  </c:if>
 
-  <c:if test="${ age < 18 }">
-  <p>Vous êtes mineur</p>
-    </c:if>
 
   </body>
 </html>
