@@ -1,5 +1,6 @@
 package com.demo.voitures.controller;
 
+import com.demo.voitures.metier.ApplicationData;
 import com.demo.voitures.metier.Garage;
 import com.demo.voitures.metier.Voiture;
 import jakarta.servlet.ServletException;
@@ -14,13 +15,10 @@ import java.util.ArrayList;
 @WebServlet("/voitures")
 public class VoitureServlet extends HttpServlet {
 
-    private Garage garage = new Garage();
-
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.setAttribute("voitures", garage.getVoitures());
+        request.setAttribute("voitures", ApplicationData.garage.getVoitures());
         request.getRequestDispatcher("WEB-INF/voitures.jsp")
                 .forward(request, response);
     }
@@ -44,7 +42,7 @@ public class VoitureServlet extends HttpServlet {
 
         // code métier : enregistrer la Plante dans la Serre
         Voiture voiture = new Voiture(nom, marque, immatriculation, annee);
-        garage.addVoiture(voiture);
+        ApplicationData.garage.addVoiture(voiture);
 
         doGet(request, response);
     }

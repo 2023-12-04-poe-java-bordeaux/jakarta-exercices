@@ -28,7 +28,15 @@
     <table border="1px">
     <tr><th>Nom</th><th>Marque</th><th>Immatriculation</th><th>Année</th></tr>
     <c:forEach items="${ voitures }" var="v">
-        <tr><td>${ v.nom }</td><td>${ v.marque }</td><td> ${ v.immatriculation }</td> <td>${ v.annee }</td></tr>
+        <tr>
+            <td>${ v.nom }</td><td>${ v.marque }</td><td> ${ v.immatriculation }</td> <td>${ v.annee }</td>
+            <td>
+                <form method="POST" action="voitures2">
+                <input type="hidden" name="nomVoitureASupprimer" value="${ v.nom }"/>
+                <input type="submit" value="Supprimer"/>
+                </form>
+            </td>
+        </tr>
     </c:forEach>
     </table>
 
