@@ -17,5 +17,13 @@
     </c:forEach>
     </ul>
 
+    <c:if test="${ showprevious == true }">
+        <a href="livres?page=${page-1}">Précédent</a>
+    </c:if>
+
+    <c:if test="${ shownext == true }">
+        <a href="livres?page=${page+1}">Suivant</a>
+    </c:if>
+
   </body>
 </html>
